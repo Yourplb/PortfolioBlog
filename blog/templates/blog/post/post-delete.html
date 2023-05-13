@@ -1,0 +1,19 @@
+{% extends "blog/layout.html" %}
+{% load static %}
+
+{% block title %}Создать статью | Blog{% endblock %}
+
+{% block content %}
+    <div class="create">
+        <div class="container">
+            <div class="create__inner">
+                <img src="{% static 'img/logo.png' %}" alt="">
+                <h1 class="create__title">Вы хотите удалить запись {{ post.title }}?</h1>
+                <form method="post">
+                  {% csrf_token %}
+                  <input class="btn btn-danger"type="submit" value="Удалить статью">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

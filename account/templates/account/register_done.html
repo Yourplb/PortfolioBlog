@@ -1,0 +1,16 @@
+{% extends 'blog/layout.html' %}
+{% load static %}
+
+{% block title %}Welcome | Blog{% endblock %}
+
+{% block content %}
+    <div class="register">
+        <div class="container">
+            <div class="register__inner">
+                <img src="{% static 'img/logo.png' %}" alt="">
+                <h1 class="register-done__title">Привет, {{ new_user.first_name }}.</h1>
+                <p class="register-done__under-link">      Аккаунт был создан. Теперь вы можете <a href="{% url 'login' %}">войти</a> в него!!!</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'blog/layout.html' %}
+{% load static %}
+
+{% block title %}Изменить аккаунт | Blog{% endblock %}
+
+{% block content %}
+    <div class="account__edit">
+        <div class="container">
+            <div class="account__edit-inner">
+                <img src="{% static 'img/logo.png' %}" alt="">
+                <h1 class="account__edit-title">Изменить аккаунт {{ request.username }}</h1>
+                {% if form.errors %}
+                    <p>
+                        Неверные данные, попробуйте еще раз
+                    </p>
+                {% else %}
+                    <p>
+                        Пожалуйста, заполните форму ниже для изменения ваших данных
+                    </p>
+                {% endif %}
+                <form method="post" enctype="multipart/form-data">
+                    {{ user_form.as_p }}
+                    {{ profile_form.about_user }}
+                    {{ profile_form.date_of_birth }}
+
+                    <div class="photo_btn">
+
+
+                         <div class="photo">
+                               <img id="file-ip-1-photo">
+                         </div>
+
+                        <label class="account__edit-photo-label" for="id_photo">{{ profile_form.photo.label }}</label>
+                        {{ profile_form.photo }}
+                    </div>
+
+                    {% csrf_token %}
+                    <p><input id="account__edit-btn" type="submit" value="Сохранить"></p>
+                </form>
+                <p class="account__edit-under-link">
+                    Вы можете
+                        <a href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket fa-rotate-180"></i>  Выйти из аккаунта</a>
+                    или
+                        <a href="{% url 'password_change' %}">поменять пароль</a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

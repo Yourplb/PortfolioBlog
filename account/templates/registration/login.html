@@ -1,0 +1,42 @@
+{% extends 'blog/layout.html' %}
+
+{% load static %}
+
+
+{% block title %}Вход | Blog{% endblock %}
+
+
+{% block content %}
+    <div class="login">
+        <div class="container">
+            <div class="login__inner">
+                <img src="{% static 'img/logo.png' %}" alt="">
+                <p class="login__title">Авторизация</p>
+                {% if form.errors %}
+                    <p>
+                        Неверный логин или пароль, попробуйте еще раз
+                    </p>
+                {% else %}
+                    <p>
+                        Пожалуйста, заполните форму ниже для входа
+                    </p>
+                {% endif %}
+                <form  action="" method="post">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <p><input id="login-btn" type="submit" value="Войти"></p>
+                </form>
+                <p class="login__under-link">Вы можете
+                    <a href="{% url 'password_reset' %}">
+                        восстановить пароль
+                    </a>
+                    или
+                    <a href="{% url 'register' %}">
+                        зарегистрироваться!
+                    </a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

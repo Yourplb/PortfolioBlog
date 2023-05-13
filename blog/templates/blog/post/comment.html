@@ -1,0 +1,20 @@
+{% extends "blog/layout.html" %}
+{% load static %}
+
+{% block title %}Добавлен комментарий | Blog{% endblock %}
+
+{% block content %}
+  {% if not comment %}
+    {% include "blog/post/includes/comment_form.html" %}
+  {% else %}
+    <div class="comment-post">
+        <div class="container">
+            <div class="comment-post__inner">
+                <img src="{% static 'img/logo.png' %}" alt="">
+                <p class="comment-post__title">Ваш комментарий был добавлен.</p>
+                <p><a href="{{ post.get_absolute_url }}">Вернуться к посту</a></p>
+            </div>
+        </div>
+    </div>
+  {% endif %}
+{% endblock %}

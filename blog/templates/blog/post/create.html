@@ -1,0 +1,41 @@
+{% extends "blog/layout.html" %}
+{% load static %}
+
+{% block title %}Создать статью | Blog{% endblock %}
+
+{% block content %}
+    <div class="create">
+        <div class="container">
+            <div class="create__inner">
+                <img src="{% static 'img/logo.png' %}" alt="">
+                <h1 class="create__title">Создать статью</h1>
+                {% if form.errors %}
+                    <p>
+                        Неверные данные, попробуйте еще раз
+                    </p>
+                {% else %}
+                    <p>
+                        Пожалуйста, заполните форму ниже для создания статьи
+                    </p>
+                {% endif %}
+                <form method="post" enctype="multipart/form-data">
+                    {{ form.title }}
+                    <div class="preview_btn">
+
+                        <div class="preview">
+                           <img id="file-ip-1-preview">
+                         </div>
+
+                        <label class="create__post-preview-label" for="id_preview">{{ form.preview.label }}</label>
+                        {{ form.preview }}
+                    </div>
+                    {{ form.body }}
+                    {{ form.tags }}
+                    {{ form.status }}
+                    {% csrf_token %}
+                    <input id="create-btn" type="submit" value="Создать">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
