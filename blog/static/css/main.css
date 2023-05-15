@@ -568,7 +568,7 @@ aside ul li:hover,aside ul a:hover {
 
 /* Detail_list */
 .item__inner {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
 }
 .item__inner a{
@@ -598,6 +598,7 @@ aside ul li:hover,aside ul a:hover {
     justify-content: left;
     flex-wrap: wrap;
     gap: 40px;
+    margin: 0 10px 0 0;
 }
 .item__similarity-list p {
     padding-bottom: 3px;
@@ -690,7 +691,7 @@ aside ul li:hover,aside ul a:hover {
 
 /* Comments */
 .comments {
-    width: 70%;
+    width: 90%;
     margin: 0 auto 50px;
 }
 .comment__count {
@@ -973,5 +974,52 @@ aside ul li:hover,aside ul a:hover {
 
 
 
+
+
+
+
+
+
+
+/* Media */
+@media screen and (max-width: 1444px) {
+    .menu__box {
+        width: 25%;
+    }
+
+}
+
+@media screen and (max-width: 1050px) {
+    .container {
+        max-width: 95%;
+    }
+    .item__inner {
+        width: 100%;
+    }
+    .comments {
+        width: 100%;
+    }
+    .menu__box {
+        width: 30%;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        max-width: 100%;
+    }
+    .item__inner {
+        width: 90%;
+    }
+    .sidebar {
+        background: #fff;
+    }
+    .menu__box {
+        width: 35%;
+
+    }
+
+}
 
 

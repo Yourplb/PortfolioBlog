@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Post, Like, Comment
+from django.shortcuts import render, get_object_or_404
+from .models import Post, Like
 from account.models import Profile
 from .forms import EmailPostForm, CommentForm, PostCreateForm, PostChangeForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -72,12 +72,13 @@ def post_detail(request, post):
     comments = post.comments.filter(active=True)
     form = CommentForm
 
-    user = request.user
-    try:
-        like = Like.objects.get(post=post, user=user)
-        is_liked = True
-    except Like.DoesNotExist:
-        is_liked = False
+    is_liked = False
+    if request.user.is_authenticated:
+        try:
+            like = Like.objects.get(post=post, user=request.user)
+            is_liked = True
+        except Like.DoesNotExist:
+            is_liked = False
 
     post_tags_ids = post.tags.values_list('id', flat=True)
     similar_posts = Post.published.filter(tags__in=post_tags_ids).exclude(id=post.id)
