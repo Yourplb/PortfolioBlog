@@ -989,12 +989,15 @@ aside ul li:hover,aside ul a:hover {
 
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1054px) {
     .container {
         max-width: 95%;
     }
     .item__inner {
         width: 100%;
+    }
+    .item__img {
+        width: 50%;
     }
     .comments {
         width: 100%;
@@ -1002,24 +1005,13 @@ aside ul li:hover,aside ul a:hover {
     .menu__box {
         width: 30%;
     }
-
-}
-
-@media screen and (max-width: 767px) {
-    .container {
-        max-width: 100%;
+    .menu__btn {
+        width: 30px;
+        height: 30px;
     }
-    .item__inner {
-        width: 90%;
-    }
-    .sidebar {
-        background: #fff;
-    }
-    .menu__box {
-        width: 35%;
-
+    .index__inner {
+        width: 100%;
     }
 
 }
-
 
