@@ -1,5 +1,5 @@
 # PortfolioBlog
-Портфолио проект для демонстрации навыков разработки на Django. Доступ к админу (admin - adminadmin)
+Портфолио проект для демонстрации навыков разработки на Django.
 ### Все доступные функции можете увидеть на главной странице или на скриншоте ниже
 
 ![](https://github.com/Yourplb/PortfolioBlog/blob/master/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA1.PNG)
